@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Computing - The Ultimate Open-Source Repository</title>
+    <meta name="description" content="Master quantum computing from zero to quantum machine learning. 20 interactive notebooks, 10 real-world projects, curated resources, and research papers. Free and open source.">
+    <meta name="keywords" content="quantum computing, qiskit, cirq, pennylane, quantum machine learning, quantum algorithms, grover, shor, VQE, QAOA, quantum neural networks, quantum AI, learn quantum computing, quantum programming, quantum circuits, qubits">
+    <meta name="author" content="Milan Joshi">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Quantum Computing - The Ultimate Open-Source Repository">
+    <meta property="og:description" content="Master quantum computing from zero to quantum machine learning. 20 notebooks, 10 projects, and curated resources.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mlnjsh.github.io/Quantum_computing/">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Quantum Computing - Ultimate Open-Source Repository">
+    <meta name="twitter:description" content="Master quantum computing from zero to quantum ML. 20 notebooks, 10 projects, free and open source.">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #1c2333;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #6c63ff;
+            --accent-light: #8b5cf6;
+            --accent-glow: rgba(108, 99, 255, 0.3);
+            --green: #22c55e;
+            --orange: #f97316;
+            --red: #ef4444;
+            --border: #30363d;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-grid {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(108,99,255,0.05) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(139,92,246,0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+        /* Hero */
+        .hero {
+            text-align: center;
+            padding: 100px 0 80px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            padding: 8px 20px;
+            font-size: 14px;
+            color: var(--accent-light);
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 7vw, 72px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #fff 0%, #6c63ff 50%, #a855f7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        .btn-primary:hover { background: var(--accent-light); transform: translateY(-2px); }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            padding: 60px 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 32px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+        .stat-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: 0 8px 30px var(--accent-glow); }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .stat-label { color: var(--text-secondary); font-size: 16px; margin-top: 8px; }
+
+        /* Section */
+        section { padding: 80px 0; }
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 18px;
+            margin-bottom: 48px;
+        }
+
+        /* Notebook Cards */
+        .notebook-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .notebook-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s;
+        }
+        .notebook-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+
+        .notebook-card .level {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .level-beginner { background: rgba(34,197,94,0.15); color: var(--green); }
+        .level-intermediate { background: rgba(249,115,22,0.15); color: var(--orange); }
+        .level-advanced { background: rgba(239,68,68,0.15); color: var(--red); }
+        .level-ai { background: rgba(108,99,255,0.15); color: var(--accent-light); }
+
+        .notebook-card h3 { font-size: 18px; margin-bottom: 8px; }
+        .notebook-card p { color: var(--text-secondary); font-size: 14px; line-height: 1.5; }
+        .notebook-card .framework { color: var(--accent-light); font-size: 13px; margin-top: 12px; }
+
+        /* Learning Path */
+        .path-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            position: relative;
+        }
+
+        .path-step {
+            text-align: center;
+            padding: 32px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            position: relative;
+        }
+
+        .path-step .step-num {
+            width: 48px; height: 48px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 20px;
+            margin: 0 auto 16px;
+        }
+
+        .path-step h3 { margin-bottom: 12px; font-size: 18px; }
+        .path-step p { color: var(--text-secondary); font-size: 14px; }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .project-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+        .project-card .project-num { color: var(--accent); font-weight: 700; font-size: 14px; }
+        .project-card h3 { font-size: 18px; margin: 8px 0; }
+        .project-card p { color: var(--text-secondary); font-size: 14px; }
+        .project-card .tech { color: var(--accent-light); font-size: 13px; margin-top: 12px; }
+
+        /* Frameworks */
+        .framework-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 16px;
+        }
+
+        .fw-card {
+            text-align: center;
+            padding: 32px 20px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+        .fw-card:hover { border-color: var(--accent); }
+        .fw-card .fw-icon { font-size: 40px; margin-bottom: 12px; }
+        .fw-card h4 { font-size: 16px; }
+        .fw-card p { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            padding: 80px 0;
+        }
+        .cta h2 { font-size: 36px; margin-bottom: 16px; }
+        .cta p { color: var(--text-secondary); font-size: 18px; margin-bottom: 32px; }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-secondary);
+        }
+        footer a { color: var(--accent-light); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .path-steps { grid-template-columns: 1fr 1fr; }
+            .notebook-grid, .project-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .stats { grid-template-columns: 1fr; }
+            .path-steps { grid-template-columns: 1fr; }
+            .hero { padding: 60px 0 40px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-badge">Open Source &bull; Free Forever &bull; Community Driven</div>
+            <h1>Quantum Computing</h1>
+            <p>Master quantum computing from zero to quantum machine learning with 20 interactive notebooks, 10 real-world projects, and curated resources.</p>
+            <div class="hero-buttons">
+                <a href="https://github.com/mlnjsh/Quantum_computing" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                    View on GitHub
+                </a>
+                <a href="https://github.com/mlnjsh/Quantum_computing#-getting-started" class="btn btn-secondary">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Stats -->
+    <div class="container">
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">20</div>
+                <div class="stat-label">Interactive Notebooks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Real-World Projects</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Quantum Frameworks</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Free & Open Source</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Learning Path -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Structured Learning Path</h2>
+            <p class="section-subtitle">Go from absolute beginner to quantum ML in 12 weeks</p>
+            <div class="path-steps">
+                <div class="path-step">
+                    <div class="step-num">1</div>
+                    <h3>Foundations</h3>
+                    <p>Qubits, gates, circuits, measurement, superposition, entanglement</p>
+                </div>
+                <div class="path-step">
+                    <div class="step-num">2</div>
+                    <h3>Algorithms</h3>
+                    <p>Deutsch-Jozsa, Grover's, Shor's, QFT, VQE, QAOA</p>
+                </div>
+                <div class="path-step">
+                    <div class="step-num">3</div>
+                    <h3>Advanced</h3>
+                    <p>Error correction, quantum walks, adiabatic computing</p>
+                </div>
+                <div class="path-step">
+                    <div class="step-num">4</div>
+                    <h3>Quantum AI</h3>
+                    <p>QNNs, quantum kernels, hybrid models, QGANs, QRL</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notebooks -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Interactive Notebooks</h2>
+            <p class="section-subtitle">Self-contained lessons with theory, code, visualizations, and exercises</p>
+            <div class="notebook-grid">
+                <div class="notebook-card">
+                    <span class="level level-beginner">Beginner</span>
+                    <h3>01 - Qubits & Quantum Gates</h3>
+                    <p>Introduction to quantum bits, single-qubit gates (Pauli-X, Y, Z, Hadamard), and Bloch sphere visualization.</p>
+                    <div class="framework">Qiskit</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-beginner">Beginner</span>
+                    <h3>02 - Circuits & Measurement</h3>
+                    <p>Multi-qubit circuits, Born's rule, probability amplitudes, and measurement collapse.</p>
+                    <div class="framework">Qiskit</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-beginner">Beginner</span>
+                    <h3>03 - Superposition & Interference</h3>
+                    <p>Hadamard gate deep dive, constructive and destructive interference, Mach-Zehnder interferometer.</p>
+                    <div class="framework">Qiskit</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-beginner">Beginner</span>
+                    <h3>04 - Entanglement & Bell States</h3>
+                    <p>Bell states, EPR pairs, quantum teleportation, superdense coding, CHSH inequality.</p>
+                    <div class="framework">Qiskit</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-beginner">Beginner</span>
+                    <h3>05 - Mathematical Foundations</h3>
+                    <p>Dirac notation, density matrices, Bloch sphere geometry, tensor products.</p>
+                    <div class="framework">NumPy, Qiskit</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-intermediate">Intermediate</span>
+                    <h3>06 - Deutsch-Jozsa Algorithm</h3>
+                    <p>First exponential quantum speedup. Oracle circuits and quantum parallelism.</p>
+                    <div class="framework">Qiskit</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-intermediate">Intermediate</span>
+                    <h3>07 - Grover's Search Algorithm</h3>
+                    <p>Amplitude amplification, diffusion operator, quadratic speedup for unstructured search.</p>
+                    <div class="framework">Qiskit</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-intermediate">Intermediate</span>
+                    <h3>08 - Shor's Factoring Algorithm</h3>
+                    <p>Modular exponentiation, quantum phase estimation, continued fractions, RSA threat.</p>
+                    <div class="framework">Qiskit</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-intermediate">Intermediate</span>
+                    <h3>09 - Quantum Fourier Transform</h3>
+                    <p>QFT circuit construction, inverse QFT, phase estimation subroutine.</p>
+                    <div class="framework">Qiskit</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-intermediate">Intermediate</span>
+                    <h3>10 - Variational Quantum Eigensolver</h3>
+                    <p>Ground state energy of molecules (H2, LiH), parameterized ansatz, classical optimization.</p>
+                    <div class="framework">Qiskit, PennyLane</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-intermediate">Intermediate</span>
+                    <h3>11 - QAOA Optimization</h3>
+                    <p>Max-Cut, Traveling Salesman, graph coloring via quantum approximate optimization.</p>
+                    <div class="framework">Qiskit, Cirq</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-intermediate">Intermediate</span>
+                    <h3>12 - Quantum Simulation</h3>
+                    <p>Trotterization, Ising models, spin chains, Hamiltonian simulation.</p>
+                    <div class="framework">Qiskit, Cirq</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-advanced">Advanced</span>
+                    <h3>13 - Quantum Error Correction</h3>
+                    <p>Bit-flip, phase-flip, Shor code, Steane code, surface codes, syndrome measurement.</p>
+                    <div class="framework">Qiskit</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-advanced">Advanced</span>
+                    <h3>14 - Quantum Walks</h3>
+                    <p>Discrete and continuous quantum walks on graphs, quadratic speedup applications.</p>
+                    <div class="framework">Qiskit, NumPy</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-advanced">Advanced</span>
+                    <h3>15 - Adiabatic Quantum Computing</h3>
+                    <p>Adiabatic theorem, quantum annealing, D-Wave connections, optimization.</p>
+                    <div class="framework">Qiskit, D-Wave Ocean</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-ai">Quantum AI</span>
+                    <h3>16 - Quantum Neural Networks</h3>
+                    <p>Parameterized circuits, variational classifiers, data re-uploading, barren plateaus.</p>
+                    <div class="framework">PennyLane, Qiskit</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-ai">Quantum AI</span>
+                    <h3>17 - Quantum Kernel Methods</h3>
+                    <p>Quantum feature maps, QSVMs, kernel alignment, quantum advantage conditions.</p>
+                    <div class="framework">Qiskit, PennyLane</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-ai">Quantum AI</span>
+                    <h3>18 - Hybrid Quantum-Classical Models</h3>
+                    <p>PyTorch + PennyLane, TensorFlow + Cirq, quantum transfer learning, quanvolution.</p>
+                    <div class="framework">PennyLane, TFQ, Cirq</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-ai">Quantum AI</span>
+                    <h3>19 - Quantum GANs & RL</h3>
+                    <p>Quantum generators, quantum policy gradients, Born machines, variational RL.</p>
+                    <div class="framework">PennyLane, Cirq</div>
+                </div>
+                <div class="notebook-card">
+                    <span class="level level-ai">Quantum AI</span>
+                    <h3>20 - Quantum Generative AI</h3>
+                    <p>Quantum Boltzmann machines, QVAEs, quantum diffusion models, research frontier.</p>
+                    <div class="framework">PennyLane, Qiskit</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Real-World Projects</h2>
+            <p class="section-subtitle">Hands-on projects to build your quantum computing portfolio</p>
+            <div class="project-grid">
+                <a href="https://github.com/mlnjsh/Quantum_computing#-projects" class="project-card">
+                    <div class="project-num">PROJECT 01</div>
+                    <h3>Quantum Random Number Generator</h3>
+                    <p>True randomness via quantum superposition. Deployed as a REST API.</p>
+                    <div class="tech">Qiskit, Flask</div>
+                </a>
+                <a href="https://github.com/mlnjsh/Quantum_computing#-projects" class="project-card">
+                    <div class="project-num">PROJECT 02</div>
+                    <h3>Quantum Key Distribution (BB84)</h3>
+                    <p>Secure communication with eavesdropper detection.</p>
+                    <div class="tech">Qiskit, NumPy</div>
+                </a>
+                <a href="https://github.com/mlnjsh/Quantum_computing#-projects" class="project-card">
+                    <div class="project-num">PROJECT 03</div>
+                    <h3>Quantum Teleportation Simulator</h3>
+                    <p>Interactive simulator with Bloch sphere visualization.</p>
+                    <div class="tech">Qiskit, Plotly, Streamlit</div>
+                </a>
+                <a href="https://github.com/mlnjsh/Quantum_computing#-projects" class="project-card">
+                    <div class="project-num">PROJECT 04</div>
+                    <h3>Quantum Chemistry Simulator</h3>
+                    <p>Ground state energies of molecules using VQE.</p>
+                    <div class="tech">Qiskit Nature, PySCF</div>
+                </a>
+                <a href="https://github.com/mlnjsh/Quantum_computing#-projects" class="project-card">
+                    <div class="project-num">PROJECT 05</div>
+                    <h3>Quantum Portfolio Optimization</h3>
+                    <p>Markowitz optimization with QAOA on real stock data.</p>
+                    <div class="tech">Qiskit Finance, yfinance</div>
+                </a>
+                <a href="https://github.com/mlnjsh/Quantum_computing#-projects" class="project-card">
+                    <div class="project-num">PROJECT 06</div>
+                    <h3>Quantum Image Classifier</h3>
+                    <p>Hybrid CNN + variational quantum circuit on MNIST.</p>
+                    <div class="tech">PennyLane, PyTorch</div>
+                </a>
+                <a href="https://github.com/mlnjsh/Quantum_computing#-projects" class="project-card">
+                    <div class="project-num">PROJECT 07</div>
+                    <h3>Quantum NLP</h3>
+                    <p>DisCoCat framework for quantum sentence classification.</p>
+                    <div class="tech">lambeq, pytket, PennyLane</div>
+                </a>
+                <a href="https://github.com/mlnjsh/Quantum_computing#-projects" class="project-card">
+                    <div class="project-num">PROJECT 08</div>
+                    <h3>Quantum Error Correction Demo</h3>
+                    <p>Comprehensive error correction with noise models.</p>
+                    <div class="tech">Qiskit, Stim, PyMatching</div>
+                </a>
+                <a href="https://github.com/mlnjsh/Quantum_computing#-projects" class="project-card">
+                    <div class="project-num">PROJECT 09</div>
+                    <h3>Quantum GAN Image Generation</h3>
+                    <p>Quantum circuit generator for handwritten digits.</p>
+                    <div class="tech">PennyLane, PyTorch</div>
+                </a>
+                <a href="https://github.com/mlnjsh/Quantum_computing#-projects" class="project-card">
+                    <div class="project-num">PROJECT 10</div>
+                    <h3>Quantum Reinforcement Learning</h3>
+                    <p>Quantum policy networks for CartPole and FrozenLake.</p>
+                    <div class="tech">PennyLane, Gymnasium</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frameworks -->
+    <section>
+        <div class="container">
+            <h2 class="section-title">Frameworks Covered</h2>
+            <p class="section-subtitle">Learn with the industry's leading quantum computing tools</p>
+            <div class="framework-grid">
+                <div class="fw-card">
+                    <div class="fw-icon">&#9883;</div>
+                    <h4>Qiskit</h4>
+                    <p>IBM Quantum</p>
+                </div>
+                <div class="fw-card">
+                    <div class="fw-icon">&#10710;</div>
+                    <h4>Cirq</h4>
+                    <p>Google Quantum AI</p>
+                </div>
+                <div class="fw-card">
+                    <div class="fw-icon">&#9889;</div>
+                    <h4>PennyLane</h4>
+                    <p>Xanadu</p>
+                </div>
+                <div class="fw-card">
+                    <div class="fw-icon">&#128218;</div>
+                    <h4>Jupyter</h4>
+                    <p>Interactive Notebooks</p>
+                </div>
+                <div class="fw-card">
+                    <div class="fw-icon">&#129516;</div>
+                    <h4>NumPy / SciPy</h4>
+                    <p>Scientific Computing</p>
+                </div>
+                <div class="fw-card">
+                    <div class="fw-icon">&#128293;</div>
+                    <h4>PyTorch</h4>
+                    <p>Quantum ML</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Enter the Quantum World?</h2>
+            <p>Join hundreds of learners mastering quantum computing with hands-on code.</p>
+            <div class="hero-buttons">
+                <a href="https://github.com/mlnjsh/Quantum_computing" class="btn btn-primary">
+                    <svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z"/></svg>
+                    Star on GitHub
+                </a>
+                <a href="https://github.com/mlnjsh/Quantum_computing/fork" class="btn btn-secondary">
+                    Fork & Contribute
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Made with &#128156; by <a href="https://github.com/mlnjsh">Milan Joshi</a></p>
+            <p style="margin-top: 8px; font-size: 14px;">
+                <a href="https://github.com/mlnjsh/Quantum_computing">GitHub</a> &bull;
+                <a href="https://github.com/mlnjsh/Quantum_computing/issues">Issues</a> &bull;
+                <a href="https://github.com/mlnjsh/Quantum_computing/blob/main/CONTRIBUTING.md">Contributing</a> &bull;
+                <a href="https://github.com/mlnjsh/Quantum_computing/blob/main/LICENSE">MIT License</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

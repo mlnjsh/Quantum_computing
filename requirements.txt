@@ -1,0 +1,57 @@
+# Core Quantum Computing Frameworks
+qiskit>=1.0
+qiskit-aer>=0.13
+qiskit-ibm-runtime>=0.20
+cirq>=1.3
+pennylane>=0.35
+pennylane-qiskit>=0.35
+
+# Scientific Computing
+numpy>=1.24
+scipy>=1.11
+pandas>=2.0
+sympy>=1.12
+
+# Visualization
+matplotlib>=3.7
+seaborn>=0.13
+plotly>=5.18
+ipywidgets>=8.1
+
+# Quantum Machine Learning
+pennylane-torch>=0.35
+torch>=2.1
+torchvision>=0.16
+
+# Additional Quantum Simulators
+qutip>=5.0
+projectq>=0.8
+strawberryfields>=0.23
+
+# Quantum Chemistry (Project 04)
+# pyscf>=2.4  # uncomment if needed (Linux/macOS only)
+
+# Finance (Project 05)
+yfinance>=0.2
+
+# NLP (Project 07)
+# lambeq>=0.4  # uncomment if needed
+
+# Error Correction (Project 08)
+# stim>=1.12  # uncomment if needed
+# pymatching>=2.0  # uncomment if needed
+
+# Reinforcement Learning (Project 10)
+gymnasium>=0.29
+
+# Jupyter
+jupyterlab>=4.0
+ipykernel>=6.25
+nbformat>=5.9
+
+# Web App (Project 03)
+streamlit>=1.30
+
+# Utilities
+tqdm>=4.66
+tabulate>=0.9

@@ -9,12 +9,16 @@
 
 <br/>
 
+<!-- CI Badge -->
+<a href="https://github.com/mlnjsh/Quantum_computing/actions/workflows/validate-notebooks.yml"><img src="https://img.shields.io/github/actions/workflow/status/mlnjsh/Quantum_computing/validate-notebooks.yml?style=for-the-badge&logo=githubactions&logoColor=white&labelColor=0d1117&color=22c55e&label=CI" alt="CI"/></a>
+
 <!-- Badges Row 1 -->
 <a href="https://github.com/mlnjsh/Quantum_computing/stargazers"><img src="https://img.shields.io/github/stars/mlnjsh/Quantum_computing?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117&color=6c63ff" alt="Stars"/></a>
 <a href="https://github.com/mlnjsh/Quantum_computing/network/members"><img src="https://img.shields.io/github/forks/mlnjsh/Quantum_computing?style=for-the-badge&logo=git&logoColor=white&labelColor=0d1117&color=8b5cf6" alt="Forks"/></a>
 <a href="https://github.com/mlnjsh/Quantum_computing/issues"><img src="https://img.shields.io/github/issues/mlnjsh/Quantum_computing?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117&color=f97316" alt="Issues"/></a>
 <a href="https://github.com/mlnjsh/Quantum_computing/blob/main/LICENSE"><img src="https://img.shields.io/github/license/mlnjsh/Quantum_computing?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=0d1117&color=22c55e" alt="License"/></a>
 <a href="https://github.com/mlnjsh/Quantum_computing/pulls"><img src="https://img.shields.io/badge/PRs-Welcome-brightgreen?style=for-the-badge&logo=githubactions&logoColor=white&labelColor=0d1117&color=10b981" alt="PRs Welcome"/></a>
+<a href="https://mlnjsh.github.io/Quantum_computing/"><img src="https://img.shields.io/badge/Portfolio-Website-6c63ff?style=for-the-badge&logo=googlechrome&logoColor=white&labelColor=0d1117" alt="Website"/></a>
 
 <br/>
 
@@ -62,6 +66,42 @@
 <!-- WAVE SEPARATOR                                                  -->
 <!-- ============================================================== -->
 <img src="https://capsule-render.vercel.app/api?type=rect&color=0:6c63ff,100:0d1117&height=2" width="100%"/>
+
+<br/>
+
+<!-- ============================================================== -->
+<!-- QUICK DEMO                                                      -->
+<!-- ============================================================== -->
+
+<div align="center">
+
+## :movie_camera: Quick Demo — See What You'll Build
+
+</div>
+
+<table>
+<tr>
+<td align="center" width="33%">
+<img src="notebooks/animations/01_ry_rotation.gif" width="280" alt="Bloch Sphere Rotation"/>
+<br/><b>Bloch Sphere Visualization</b>
+<br/><sub>Notebook 01 — Qubits & Gates</sub>
+</td>
+<td align="center" width="33%">
+<img src="notebooks/animations/07_bell_state_creation.gif" width="280" alt="Bell State Creation"/>
+<br/><b>Bell State Entanglement</b>
+<br/><sub>Notebook 04 — Entanglement</sub>
+</td>
+<td align="center" width="33%">
+<img src="notebooks/animations/11_teleportation.gif" width="280" alt="Quantum Teleportation"/>
+<br/><b>Quantum Teleportation</b>
+<br/><sub>Notebook 05 — Teleportation Protocol</sub>
+</td>
+</tr>
+</table>
+
+<br/>
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:a855f7,100:0d1117&height=2" width="100%"/>
 
 <br/>
 
